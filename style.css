@@ -69,3 +69,10 @@ button:hover {
   color: #011;
   box-shadow: 0 0 20px #0ff;
 }
+.token {
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  position: relative;
+  z-index: 10;
+}
