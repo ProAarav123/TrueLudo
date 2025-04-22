@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Futuristic Ludo - Game</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Board styles inside game.html for convenience */
+    body {
+      background: #050520;
+      color: #0ff;
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #board {
+      position: relative;
+      width: 500px;
+      height: 500px;
+      background: #111122;
+      border: 4px solid #0ff;
+      border-radius: 20px;
+      box-shadow:
+        0 0 10px #0ff,
+        inset 0 0 20px #0ff;
+      display: grid;
+      grid-template-columns: repeat(15, 1fr);
+      grid-template-rows: repeat(15, 1fr);
+    }
+
+    /* Basic squares of board */
+    .cell {
+      border: 1px solid #0ff33;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+    }
+
+    /* Starting zones */
+    .start-red { background: #ff0033; }
+    .start-green { background: #33ff33; }
+    .start-yellow { background: #ffff33; }
+    .start-blue { background: #3399ff; }
+
+    /* Safe zones */
+    .safe-zone { background: #00ffff55; }
+
+    /* Tokens */
+    .token {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      position: absolute;
+      box-shadow: 0 0 10px #0ff;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .token.red { background: #ff0033; }
+    .token.green { background: #33ff33; }
+    .token.yellow { background: #ffff33; }
+    .token.blue { background: #3399ff; }
+
+    /* Dice & info */
+    #dice {
+      margin: 20px;
+      font-size: 3rem;
+      user-select: none;
+      cursor: pointer;
+      color: #0ff;
+      text-shadow: 0 0 5px #0ff;
+    }
+
+    #info {
+      margin-top: 10px;
+      font-size: 1.2rem;
+    }
+
+    #rollBtn {
+      padding: 15px 30px;
+      font-size: 1.3rem;
+      color: #0ff;
+      background: transparent;
+      border: 2px solid #0ff;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    #rollBtn:hover {
+      background: #0ff;
+      color: #011;
+      box-shadow: 0 0 20px #0ff;
+    }
+
+    /* Winner Screen */
+    #winnerScreen {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 255, 255, 0.2);
+      color: #0ff;
+      font-size: 3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      display: none;
+    }
+    #winnerScreen button {
+      margin-top: 30px;
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      border-radius: 10px;
+      border: none;
+      background: #0ff;
+      color: #011;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Futuristic Ludo</h1>
+  <div id="board"></div>
+
+  <div id="dice" title="Click to roll dice">🎲 1</div>
+  <button id="rollBtn">Roll Dice</button>
+  <div id="info"></div>
+
+  <div id="winnerScreen">
+    <div id="winnerText"></div>
+    <button onclick="location.reload()">Play Again</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
