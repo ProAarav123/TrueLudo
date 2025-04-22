@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Futuristic Ludo - Start</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to Futuristic Ludo</h1>
+    <input type="text" id="playerName" placeholder="Enter your name" />
+    <select id="playerCount">
+      <option value="2">2 Players</option>
+      <option value="3">3 Players</option>
+      <option value="4" selected>4 Players</option>
+    </select>
+    <button id="startBtn">Start Game</button>
+  </div>
+
+  <script>
+    document.getElementById('startBtn').onclick = () => {
+      const name = document.getElementById('playerName').value.trim() || 'Player';
+      const count = document.getElementById('playerCount').value;
+      // Save data in sessionStorage to pass between pages
+      sessionStorage.setItem('playerName', name);
+      sessionStorage.setItem('playerCount', count);
+      window.location.href = 'game.html';
+    };
+  </script>
+</body>
+</html>
