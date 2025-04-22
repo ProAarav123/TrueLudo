@@ -144,5 +144,36 @@
   </div>
 
   <script src="script.js"></script>
-</body>
+</body><h2>Dice Roll: <span id="dice">-</span></h2>
+<button onclick="rollDice()">Roll Dice</button>
+
+<script>
+  function rollDice() {
+    const roll = Math.floor(Math.random() * 6) + 1;
+    document.getElementById("dice").innerText = roll;
+
+    // Example: move red token forward
+    const redToken = document.getElementById("red-token");
+    let pos = parseInt(redToken.getAttribute("data-pos")) || 0;
+    pos += roll;
+    if (pos > 224) pos = 224;
+    redToken.setAttribute("data-pos", pos);
+    redToken.style.gridArea = `${Math.floor(pos / 15) + 1} / ${(pos % 15) + 
 </html>
+    <h2>Dice Roll: <span id="dice">-</span></h2>
+<button onclick="rollDice()">Roll Dice</button>
+
+<script>
+  function rollDice() {
+    const roll = Math.floor(Math.random() * 6) + 1;
+    document.getElementById("dice").innerText = roll;
+
+    // Example: move red token forward
+    const redToken = document.getElementById("red-token");
+    let pos = parseInt(redToken.getAttribute("data-pos")) || 0;
+    pos += roll;
+    if (pos > 224) pos = 224;
+    redToken.setAttribute("data-pos", pos);
+    redToken.style.gridArea = `${Math.floor(pos / 15) + 1} / ${(pos % 15) + 1}`;
+  }
+</script>                                                           
